@@ -154,10 +154,8 @@ class RowLoader(EtlWriter):
         self.session=create_session()
     
 
-class JivaRowLoader(RowLoader):
-    pass 
 
-class UserLoader(JivaRowLoader):
+class UserLoader(RowLoader):
 
     def populate(self):
         user=User()
@@ -169,7 +167,7 @@ class UserLoader(JivaRowLoader):
         self.session.commit()
 
 
-class UserAddrLoader(JivaRowLoader):
+class UserAddrLoader(RowLoader):
     def populate(self):
         useraddr=UserAddr()
         useraddr.name='sample'
